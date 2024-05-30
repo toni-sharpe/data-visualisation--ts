@@ -5,19 +5,33 @@ import './Button.scss'
 
 const i18nBase = 'Button'
 
+interface Button {
+  ariaLabel: string | undefined;
+  extraClass: string | undefined;
+  isDisabled: boolean;
+  isPrimaryMarked: boolean;
+  isSelected: boolean;
+  label: string,
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;
+  size: string;
+  style: React.CSSProperties;
+  title: string | undefined;
+}
+
 function Button({
-  ariaLabel,
-  extraClass,
-  isDisabled,
-  isPrimaryMarked,
-  isSelected,
+  ariaLabel = undefined,
+  extraClass = undefined,
+  isDisabled = false,
+  isPrimaryMarked = false,
+  isSelected = false,
   label,
   onClick,
   onKeyDown,
-  size,
-  style,
-  title,
-}) {
+  size = 'medium',
+  style = {},
+  title = undefined,
+}: Button) {
   const disabledClass = isDisabled ? ' is-disabled' : ''
   const selectedClass = isSelected ? ' is-selected' : ''
 
@@ -29,7 +43,7 @@ function Button({
       })
     : ''
 
-  const className = `${size ? `button--${size} ` : ''}${extraClass || ''}${selectedClass}${disabledClass}`
+  const className = `button--${size} ${extraClass || ''}${disabledClass}${selectedClass}`
 
   const buttonProps = {
     'aria-disabled': isDisabled,
@@ -38,10 +52,10 @@ function Button({
     disabled: isDisabled,
     className,
     onClick: isDisabled
-      ? null
+      ? undefined
       : onClick,
     onKeyDown: isDisabled
-      ? null
+      ? undefined
       : onKeyDown,
     style,
     title: `${title ? title : ''}${isDisabledTitleText}${isPrimaryMarked ? ` - ${i18next.t(`${i18nBase}.primary`)}` : ''}`,
@@ -52,15 +66,6 @@ function Button({
       <span>{label}</span>
     </button>
   )
-}
-
-Button.defaultProps = {
-  ariaLabel: null,
-  isDisabled: false,
-  isSelected: false,
-  label: "Label needs to be set!",
-  size: null,
-  title: undefined,
 }
 
 export default Button

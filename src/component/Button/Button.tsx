@@ -5,7 +5,7 @@ import './Button.scss'
 
 const i18nBase = 'Button'
 
-interface Button {
+interface ButtonType {
   ariaLabel: string | undefined;
   extraClass: string | undefined;
   isDisabled: boolean;
@@ -31,7 +31,7 @@ function Button({
   size = 'medium',
   style = {},
   title = undefined,
-}: Button) {
+}: ButtonType) {
   const disabledClass = isDisabled ? ' is-disabled' : ''
   const selectedClass = isSelected ? ' is-selected' : ''
 

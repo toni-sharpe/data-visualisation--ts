@@ -13,5 +13,5 @@ test('we can set and get a value from local storage', () => {
 
 test('and this uses the default too', () => {
   setLocalStorage({ k: 'This', v: 'this-panel' })
-  expect(secondaryNavLocalStorage({ def: 'default-test', k: 'That '})).toEqual('default-test')
+  expect(secondaryNavLocalStorage({ defaultV: 'default-test', k: 'That '})).toEqual('default-test')
 })

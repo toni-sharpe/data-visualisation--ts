@@ -6,17 +6,17 @@ import './Button.scss'
 const i18nBase = 'Button'
 
 interface ButtonType {
-  ariaLabel: string | undefined;
-  extraClass: string | undefined;
-  isDisabled: boolean;
-  isPrimaryMarked: boolean;
-  isSelected: boolean;
+  ariaLabel?: string;
+  extraClass?: string;
+  isDisabled?: boolean;
+  isPrimaryMarked?: boolean;
+  isSelected?: boolean;
   label: string,
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;
-  size: string;
-  style: React.CSSProperties;
-  title: string | undefined;
+  size?: string;
+  style?: React.CSSProperties;
+  title?: string;
 }
 
 function Button({

@@ -5,7 +5,7 @@ import './Button.scss'
 
 const i18nBase = 'Button'
 
-interface ButtonType {
+export interface ButtonType {
   ariaLabel?: string;
   extraClass?: string;
   isDisabled?: boolean;

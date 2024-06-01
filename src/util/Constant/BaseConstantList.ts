@@ -21,19 +21,6 @@ export const TECH_STACK_COUNT = 24
 
 /***********************************/
 /*
- * Filters
- */
-export const ORDERED_FILTERS = {
-  fjp: false,
-  rmDubious: false,
-  heo: false,
-  severe: false,
-  nonSevere: false,
-}
-
-
-/***********************************/
-/*
  * Histogram
  */
 export const HISTOGRAM_BAR_LIST_COUNT = 1
@@ -51,21 +38,6 @@ export const CONTRAST_TOGGLE_MINIMUM = 11 // contrast toggling doesn't work with
                                          // naturally contrast when spread around the wheel
 export const USE_HUE_WHEEL = false
 export const USE_HUE_CONTRAST_TOGGLE = false
-
-
-/***********************************/
-/*
- * Menu
- */
-export const ROOT_MENU_SLUGS = [
-  '',
-  'Scatter',
-  'TimeLine',
-  'Gantt',
-  'HistogramMaker',
-  'SVG',
-  'WorldMap',
-]
 
 
 /***********************************/

@@ -8,7 +8,11 @@ import './LanguageToggle.scss'
 
 const i18nBase = 'LanguageToggle'
 
-function LanguageToggleButton({ languageKey = 'en' }) {
+interface LanguageKeyType {
+  languageKey: 'en' | 'de';
+}
+
+function LanguageToggleButton({ languageKey = 'en' }: LanguageKeyType) {
   const currentLanguage = i18next.language
   const isSelected = languageKey === currentLanguage
 

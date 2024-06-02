@@ -2,10 +2,15 @@ import { API_DOMAIN } from 'util/Constant/SiteConstantList'
 
 const USE_API = false
 
+interface BaseApiCallType {
+  endPoint: string;
+  setData: React.Dispatch<React.SetStateAction<any>>;
+}
+
 function baseApiCall ({
   endPoint,
   setData,
-}) {
+}: BaseApiCallType) {
   return () => {
     async function getData() {
       if (USE_API) {

@@ -12,14 +12,16 @@ function baseApiCall ({
   setData,
 }: BaseApiCallType) {
   return () => {
+    const cdnUrl = 'https://data-visualisation--cdn.pages.dev'
+
     async function getData() {
       if (USE_API) {
         const data = await fetch(`${API_DOMAIN}${endPoint}`)
         const dataJson = await data.json()
         setData(dataJson)
       } else if (endPoint === 'WorldMap') {
-        const worldMapDataFetch = await fetch(`https://data-visualisation--cdn.pages.dev/WorldMapData.min.json`)
-        const worldBorderListFetch = await fetch(`https://data-visualisation--cdn.pages.dev/WorldBorderList.min.json`)
+        const worldMapDataFetch = await fetch(`${cdnUrl}/WorldMapData.min.json`)
+        const worldBorderListFetch = await fetch(`${cdnUrl}/WorldBorderList.min.json`)
         const worldMapData = await worldMapDataFetch.json()
         const worldBorderList = await worldBorderListFetch.json()
         const data = {
@@ -32,7 +34,7 @@ function baseApiCall ({
           return data
         }
       } else if (endPoint !== '' && endPoint !== 'Home') {
-        const realFullDataFetch = await fetch(`https://data-visualisation--cdn.pages.dev/RealFullData.min.json`)
+        const realFullDataFetch = await fetch(`${cdnUrl}/RealFullData.min.json`)
         const realFullData = await realFullDataFetch.json()
         setData(realFullData.data)
       }
